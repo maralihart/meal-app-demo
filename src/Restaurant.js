@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cuisine: {
+    marginTop: 5,
     fontSize: 14,
   },
   logo: {
@@ -61,9 +62,15 @@ const styles = StyleSheet.create({
     height: 100,
   },
   coupon: {
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: '#339944',
-    fontSize: 16,
+    fontSize: 14,
+    color: '#fff',
+    padding: 8,
+    overflow: 'hidden',
+    borderRadius: 5,
+    fontWeight: 'bold',
+    width: 200,
   },
 });
 
