@@ -11,7 +11,7 @@ class Restaurant extends Component {
       <View style={styles.container}>
         <Image source={{uri: this.props.imageSrc}} style={styles.logo} />
         <Text style={styles.name}>{this.props.name}</Text>
-        <Text style={styles.cuisine}>{this.formatCuisines(this.props.cuisine)}</Text>
+        <Text style={styles.cuisine}>{this.props.cuisine}</Text>
       </View>
     );
   }
@@ -20,8 +20,9 @@ class Restaurant extends Component {
     let cuisineString = '';
     if (cuisines.length >= 1) {
       for (let i = 0; i < 3; i++) {
-        if(i != cuisines.length-1 || i != 2) {cuisineString = cuisineString.concat(cuisines[i] + ", ")}
-        else {
+        if (i !== cuisines.length - 1 || i !== 2) {
+          cuisineString = cuisineString.concat(cuisines[i] + ', ');
+        } else {
           cuisineString = cuisineString.concat(cuisines[i]);
           break;
         }

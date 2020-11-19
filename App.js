@@ -8,12 +8,12 @@ function App() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    fetch('https://c1f487ba9e7c.ngrok.io/api/customers/mara')
+    fetch('http://924af0800ea4.ngrok.io/api')
       .then((response) => response.json())
       .then(
         (responseJson) => {
           setIsLoaded(true);
-          setRestaurants(result);
+          setRestaurants(responseJson.openRestaurants);
         },
         (error) => {
           setIsLoaded(true);
@@ -23,16 +23,16 @@ function App() {
   }, []);
 
   if (error) {
-    return <View>Error: {error.message}</View>;
+    return <Text>Error: {error.message}</Text>;
   } else if (!isLoaded) {
-    return <View>Loading...</View>;
+    return <Text>Loading...</Text>;
   } else {
     return (
       <View style={styles.container}>
         {restaurants.map((restaurant) => (
           <Restaurant
             name={restaurant.name}
-            cuisine={restaurant.cuisines}
+            cuisine={restaurant.cuisine}
             imageSrc={restaurant.image_path}
             freeMeal={restaurant.freeMeals}
           />
