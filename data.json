@@ -1,0 +1,34 @@
+{
+  "openRestaurants": [
+    {
+      "name": "Roots on the Corner",
+      "cuisine": ["Sandwiches", "Smoothies", "Whole Foods", "Wellness"],
+      "image_path": "https://charlottesville29.files.wordpress.com/2015/06/roots-logo.jpg",
+      "freeMeals": null
+    },
+    {
+      "name": "Trinity Pub",
+      "cuisine": ["Sandwiches", "Bar", "American"],
+      "image_path": "https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,h_1200,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/charlottesville/trinity_c1e11cc9-5056-a36a-0631c5caa073202b.jpg",
+      "freeMeals": 0.5
+    },
+    {
+      "name": "Lemongrass",
+      "cuisine": ["Thai"],
+      "image_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwCBIjtqr8XQzzM4tiz-8u-5C65grhF-lB-EYGrLtgvN5X8AofYCPDjZ7Pg_GWzpNG5W-K5nOgjqhGEglTbn9gmvjtEy-l350&usqp=CAU&ec=45725304",
+      "freeMeals": null
+    },
+    {
+      "name": "Corner Juice",
+      "cuisine": ["Sandwiches", "Smoothies", "Acai Bowls"],
+      "image_path": "https://i.pinimg.com/474x/48/dc/58/48dc5851776ab5a089c7a62935b775af.jpg",
+      "freeMeals": null
+    },
+    {
+      "name": "Christian's Pizza",
+      "cuisine": ["Pizza"],
+      "image_path": "https://villageshoppingcenterrichmond.com/wp-content/uploads/sites/9/2017/12/christians-pizza.jpg",
+      "freeMeals": null
+    }
+  ]
+}
