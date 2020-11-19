@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
 import Restaurant from './src/Restaurant';
 
 function App() {
@@ -83,6 +76,10 @@ const styles = StyleSheet.create({
     height: 200,
     width: Dimensions.get('window').width,
     marginBottom: 30,
+  },
+  restaurant: {
+    marginBottom: 100,
+    backgroundColor: '#888fff',
   },
 });
 
