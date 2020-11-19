@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import Restaurant from './src/Restaurant';
 
 function App() {
@@ -29,14 +36,26 @@ function App() {
   } else {
     return (
       <View style={styles.container}>
-        {restaurants.map((restaurant) => (
-          <Restaurant
-            name={restaurant.name}
-            cuisine={restaurant.cuisine}
-            imageSrc={restaurant.image_path}
-            freeMeal={restaurant.freeMeals}
-          />
-        ))}
+        <Text style={styles.title}>Restaurants</Text>
+        <Image
+          style={styles.slider}
+          source={{
+            uri:
+              'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          }}
+        />
+        <View style={styles.restaurantList}>
+          {restaurants.map((restaurant, index) => (
+            <Restaurant
+              style={styles.restaurant}
+              key={index}
+              name={restaurant.name}
+              cuisine={restaurant.cuisine}
+              imageSrc={restaurant.image_path}
+              freeMeal={restaurant.free_meals}
+            />
+          ))}
+        </View>
       </View>
     );
   }
@@ -44,10 +63,26 @@ function App() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 50,
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  restaurantList: {
+    flex: 1,
+    backgroundColor: '#fff',
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    paddingLeft: 20,
+    paddingBottom: 20,
+  },
+  slider: {
+    height: 200,
+    width: Dimensions.get('window').width,
+    marginBottom: 30,
   },
 });
 
