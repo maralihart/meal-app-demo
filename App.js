@@ -1,42 +1,44 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import Restaurant from './src/Restaurant';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      restaurants: [],
-    };
-  }
+function App() {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [restaurants, setRestaurants] = useState([]);
 
-  componentDidMount() {
-    const response = fetch('https://c1f487ba9e7c.ngrok.io/api/customers/mara')
-      .then(response => response.json())
-      .then((responseJson) => {
-        this.setState({'restaurants': responseJson.openRestaurants});
-      })
-      .catch(error => {console.log(error)});
-  };
+  useEffect(() => {
+    fetch('https://c1f487ba9e7c.ngrok.io/api/customers/mara')
+      .then((response) => response.json())
+      .then(
+        (responseJson) => {
+          setIsLoaded(true);
+          setRestaurants(result);
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        },
+      );
+  }, []);
 
-  render() {
+  if (error) {
+    return <View>Error: {error.message}</View>;
+  } else if (!isLoaded) {
+    return <View>Loading...</View>;
+  } else {
     return (
       <View style={styles.container}>
-        {this.state.restaurants.map((restaurant, index) => (
-          <Restaurant name={restaurant.name} cuisine={restaurant.cuisines} imageSrc={restaurant.image_path} />
+        {restaurants.map((restaurant) => (
+          <Restaurant
+            name={restaurant.name}
+            cuisine={restaurant.cuisines}
+            imageSrc={restaurant.image_path}
+            freeMeal={restaurant.freeMeals}
+          />
         ))}
       </View>
     );
-  };
-
-  async getAPIData() {
-    const response = await fetch('https://c1f487ba9e7c.ngrok.io/api/customers/mara')
-      .then(response => response.json())
-      .then((responseJson) => {
-        console.log("API called");
-        return responseJson.openRestaurants;
-      })
-      .catch(error => {console.log(error)});
   }
 }
 
