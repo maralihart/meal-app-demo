@@ -1,5 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Dimensions,
+  Image,
+  ScrollView,
+  Bullets,
+} from 'react-native';
+import {Col, Grid} from 'react-native-easy-grid';
 import Restaurant from './src/Restaurant';
 
 function App() {
@@ -30,17 +40,30 @@ function App() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Restaurants</Text>
-        <Image
+        <ImageBackground
           style={styles.slider}
           source={{
             uri:
               'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-          }}
-        />
+          }}>
+          <Grid style={styles.dealAlert}>
+            <Col size={80}>
+              <Text>50% off your first order at Trinity, today only</Text>
+            </Col>
+            <Col size={20}>
+              <Image
+                style={styles.arrow}
+                source={{
+                  uri:
+                    'https://www.jing.fm/clipimg/full/0-6641_arrow-transparent-background-image-right-arrow-icon-android.png',
+                }}
+              />
+            </Col>
+          </Grid>
+        </ImageBackground>
         <View style={styles.restaurantList}>
           {restaurants.map((restaurant, index) => (
             <Restaurant
-              style={styles.restaurant}
               key={index}
               name={restaurant.name}
               cuisine={restaurant.cuisine}
@@ -77,9 +100,21 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     marginBottom: 30,
   },
-  restaurant: {
-    marginBottom: 100,
-    backgroundColor: '#888fff',
+  dealAlert: {
+    width: 300,
+    height: 20,
+    backgroundColor: '#fff',
+    marginTop: 120,
+    marginBottom: 25,
+    marginLeft: 80,
+    padding: 10,
+    justifyContent: 'center',
+  },
+  arrow: {
+    margin: 10,
+    width: 35,
+    height: 15,
+    resizeMode: 'contain',
   },
 });
 

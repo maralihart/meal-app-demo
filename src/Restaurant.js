@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     padding: 8,
     overflow: 'hidden',
     borderRadius: 5,
-    fontWeight: 'bold',
+    fontWeight: '700',
     width: 200,
   },
 });
